@@ -1,12 +1,11 @@
-# 🧱 Prompted Segmentation for Drywall & Crack QA
+#  Prompted Segmentation for Drywall & Crack QA
 **Author:** Soumen  
 **Institute:** IIT Bhubaneswar  
-**Position Applied:** AI Research Apprentice @ 10xConstruction  
 **Date:** November 2025  
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 This project fine-tunes a **text-conditioned segmentation model (CLIPSeg)** to detect wall cracks and drywall taping areas.  
 The goal is to evaluate how well a *prompt-based* model can generalize across different construction scenes when given natural-language commands like:
 
@@ -17,7 +16,7 @@ The model learns to highlight relevant regions in each image — useful for auto
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 ### 1. Environment
 Tested on:
 - Python 3.10+
