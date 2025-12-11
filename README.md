@@ -36,3 +36,5 @@ pip install torch torchvision torchaudio transformers scikit-learn matplotlib pi
 -python test_and_visualize.py
 
 #Results (Dice, mIoU, and visuals) are saved in results/.
+<img width="5760" height="2560" alt="visual_grid" src="https://github.com/user-attachments/assets/a6526994-3a2a-405b-97eb-9be306d8118f" />
+Fig: Grid View of multiple test cases. lest to right Image,Ground Truth, Predicted Mask
