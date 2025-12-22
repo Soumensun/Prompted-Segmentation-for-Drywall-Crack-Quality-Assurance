@@ -2,7 +2,6 @@
 
 Author: Soumen
 Institute: IIT Bhubaneswar
-Role Applied: AI Research Apprentice @ 10xConstruction
 Date: November 2025
 
 ## Problem Motivation
@@ -101,7 +100,6 @@ python train_clipseg_from_txt.py
 
 ## Test & Visualize Results
 python test_and_visualize.py
-
 
 Segmentation outputs and metrics are saved in:
 
