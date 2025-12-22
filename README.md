@@ -78,12 +78,3 @@ Notes
 This work focuses on prompt generalization and robustness rather than architectural novelty.
 Future extensions include multi-defect prompting and comparison with SAM-based segmentation methods.
 
-Repository Structure
-
-
-
-├── train_clipseg_from_txt.py
-├── test_and_visualize.py
-├── visual_grid.png
-├── results/
-└── README.md
