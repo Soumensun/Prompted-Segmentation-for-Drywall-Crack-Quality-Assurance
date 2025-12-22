@@ -1,130 +1,87 @@
-### Prompted Segmentation for Drywall & Crack Quality Assurance
+Prompt-based Segmentation for Drywall Crack Detection
 
 Author: Soumen
-Institute: IIT Bhubaneswar
-Date: November 2025
+Affiliation: IIT Bhubaneswar
 
-## Problem Motivation
+Overview
 
-Crack detection and drywall quality inspection are critical but manual tasks in construction QA.
-This project explores whether a prompt-based segmentation model can reliably identify:
-
-Structural cracks
-
-Drywall taping regions
-
-using natural language instructions, enabling scalable inspection for autonomous robots and vision systems.
-
-## Project Overview
-
-This project fine-tunes CLIPSeg, a text-conditioned image segmentation model, to segment construction defects based on prompts such as:
+This project investigates the use of prompt-driven image segmentation for detecting cracks and drywall defects in construction images.
+Instead of training a fixed-class segmentation network, we fine-tune CLIPSeg, a text-conditioned model, to localize defects using natural language prompts such as:
 
 segment crack
 
 segment drywall taping area
 
-Instead of training a separate model per defect type, the system learns to generalize using text prompts, making it flexible for real-world inspection scenarios.
+The motivation is to build a flexible inspection system suitable for robotic or automated construction quality assessment.
 
-## Model Used
+Method
 
-CLIPSeg (Hugging Face Transformers)
+Model: CLIPSeg (Hugging Face Transformers)
 
-Vision encoder + text encoder
+Input: RGB image + text prompt
 
-Prompt-guided pixel-wise segmentation
+Output: Binary segmentation mask corresponding to the prompt
 
-Why CLIPSeg?
+Training: Supervised fine-tuning using crack masks aligned with text prompts
 
-Supports open-vocabulary segmentation
+This approach reduces the need for rigid class definitions and allows extension to new defect types via prompt engineering.
 
-Suitable for environments where defect types evolve
+Qualitative Results
 
-Aligns well with foundation-model-based inspection pipelines
+The following figure shows representative segmentation results on different wall and surface textures.
+White regions correspond to the predicted crack masks.
 
-## Qualitative Results (Model Output)
+Evaluation
 
-Below is a grid visualization showing input images and predicted segmentation masks for cracks across diverse wall surfaces:
+Performance is evaluated using standard segmentation metrics:
 
-Concrete
+Dice coefficient
 
-Brick
+Mean IoU
 
-Painted drywall
+Both quantitative metrics and visualization outputs are saved during inference.
 
-Rough plaster
+Setup
 
-## Crack Segmentation Results
+Environment
 
-Observation:
+Python ≥ 3.10
 
-The model captures thin, elongated crack structures
-
-Robust across texture and illumination variations
-
-Handles both horizontal and vertical cracks reasonably well
-
-## Training & Evaluation
-Metrics Used
-
-Dice Coefficient
-
-Mean IoU (mIoU)
-
-Training Objective
-
-Learn text–image alignment for defect localization
-
-Reduce dependence on rigid class labels
-
-## Setup Instructions
-## Environment
-
-Tested on:
-
-Python 3.10+
-
-PyTorch 2.x
+PyTorch ≥ 2.0
 
 CUDA 11.8
 
-Hugging Face Transformers ≥ 4.44
+Transformers ≥ 4.44
 
-scikit-learn, matplotlib, Pillow, tqdm
+matplotlib, Pillow, tqdm, scikit-learn
 
-## Install dependencies:
+Install dependencies:
 
-pip install torch torchvision torchaudio transformers scikit-learn matplotlib pillow tqdm
+pip install torch torchvision torchaudio transformers matplotlib pillow tqdm scikit-learn
 
-## Train the Model
+Training
 python train_clipseg_from_txt.py
 
-## Test & Visualize Results
+Testing and Visualization
 python test_and_visualize.py
 
-Segmentation outputs and metrics are saved in:
+
+Results (masks and metrics) are saved in:
 
 results/
 
-## Applications
+![Crack segmentation results](results/visual_grid.png)
 
-Construction site QA automation
 
-Crack monitoring over time
+Notes
 
-Vision-enabled inspection robots
+This work focuses on prompt generalization and robustness rather than architectural novelty.
+Future extensions include multi-defect prompting and comparison with SAM-based segmentation methods.
 
-Foundation models for infrastructure health assessment
-
-## Future Work
-
-Multi-prompt learning (crack + spalling + moisture)
-
-Temporal crack progression tracking
-
-Integration with depth or thermal data
-
-Comparison with SAM / MedSAM-style prompting
-
-## Key Takeaway
-
-This project demonstrates that prompt-driven segmentation can be a viable alternative to rigid class-based models for construction inspection — reducing retraining costs while improving flexibility.
+Repository Structure
+.
+├── train_clipseg_from_txt.py
+├── test_and_visualize.py
+├── visual_grid.png
+├── results/
+└── README.md
