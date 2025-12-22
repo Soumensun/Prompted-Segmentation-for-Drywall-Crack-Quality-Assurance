@@ -1,4 +1,4 @@
-Prompt-based Segmentation for Drywall Crack Detection
+## Prompt-based Segmentation for Drywall Crack Detection
 
 Author: Soumen
 Affiliation: IIT Bhubaneswar
